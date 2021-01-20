@@ -2,14 +2,20 @@
 <html>
   <head>
     <title>Jotleaf</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('favicon.png') %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <!-- Header -->
+    <%= render 'layouts/header' %>
+
     <%= yield %>
   </body>
 </html>

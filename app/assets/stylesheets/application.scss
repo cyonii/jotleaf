@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'bootstrap';
+
+$primary: #f76208;
+$secondary: #4e443e;
+
+.navbar-brand {
+  img {
+    width: 150px;
+  }
+}
+
+@include media-breakpoint-up('md') {
+  [class^='container'] {
+    max-width: 1140px;
+  }
+}
+
+.navbar-toggler-icon {
+  width: 2em;
+  height: 2em;
+}
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: $primary;
+}
