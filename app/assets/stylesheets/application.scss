@@ -14,10 +14,10 @@
  *= require_self
  */
 
-@import 'bootstrap';
-
 $primary: #f76208;
 $secondary: #4e443e;
+
+@import 'bootstrap';
 
 .navbar-brand {
   img {
