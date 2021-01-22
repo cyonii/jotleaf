@@ -16,6 +16,7 @@
 
 $primary: #f76208;
 $secondary: #4e443e;
+$dark: #000;
 
 @import 'bootstrap';
 
@@ -39,4 +40,30 @@ $secondary: #4e443e;
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .show > .nav-link {
   color: $primary;
+}
+
+// Fonts
+.fs-sm {
+  font-size: 15px;
+}
+
+.fs-xs {
+  font-size: 14px;
+}
+
+// Placeholer
+*::-moz-placeholder,
+*::-webkit-input-placeholder,
+*::placeholder {
+  font-weight: lighter;
+}
+
+// Jot pen
+#jot-pen {
+  border-radius: 50% 0 50% 50%;
+  transform: rotate(-15deg);
+
+  svg {
+    transform: rotate(15deg);
+  }
 }
