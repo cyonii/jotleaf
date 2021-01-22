@@ -1,0 +1,11 @@
+one:
+  author: one
+  title: Jot one
+  text: Jot entry for test - ONE
+  # image: fake.jpg
+
+two:
+  author: two
+  title: Jot two
+  text: Jot entry for test - TWO
+  # image: fake.jpg
