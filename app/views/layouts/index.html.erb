@@ -1,15 +1,44 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col py-5 mt-5 text-center user-select-none">
-      <h1 class="display-1 fw-light text-secondary">
-        Hey, there!
-      </h1>
-      <p class="fs-4 text-muted fw-lighter">
-        Share your jots and read other people's?
-      </p class="fs-4 text-muted fw-lighter">
-      <div class="alert alert-primary coming-soon rounded-1 px-5 py-2 fw-bold d-inline-flex">
-        Coming soon
+<div class="container-lg">
+  <div class="row g-0" id="mega-hero">
+    <div class="col-lg-9">
+      <div class="card rounded-0 border-0 h-100">
+        <%# image_tag asset_path('one.jpg', alt: 'Sample One'), class: 'card-img rounded-0' %>
+        <img src="https://picsum.photos/id/111/4400/2656.jpg" alt="OPop">
+        <div class="card-img-overlay rounded-0 bottom-0 start-0">
+          <h2 class="fw-bold fs-5 text-primary">
+            <%= link_to '#', class: 'text-decoration-none' do %>
+              Why you must not make any excuse for not keeping fit.
+            <% end %>
+          </h2>
+          <p class="text-white lh-sm mb-0">
+            Friends. young woman working out at home , doing yoga exercises with the dog.
+            beautiful woman stretching, practicing. wellness, wellbeing, healthcare,
+            mental health, lifestyle concept. Free Photo
+          </p>
+        </div>
       </div>
     </div>
+    <div class="col-lg-3">
+      <%# image_tag asset_path('two.jpg', alt: 'Sample Two') %>
+      <img src="https://picsum.photos/id/155/4400/2656.jpg" alt="OPop">
+    </div>
+  </div>
+  <div class="row g-0" id="most-popular">
+    <% 4.times do |time| %>
+    <div class="col-6 col-md-3">
+      <div class="card popular-jot-card border-0 rounded-0">
+        <%# image_tag asset_path('one.jpg', alt: 'Sample One'), class: 'card-img rounded-0' %>
+        <img class="h-100 1-00 object-fit-cover" src="https://picsum.photos/1000/400?random=<%= "#{time}" %>" alt="Random image">
+        <div class="card-img-overlay h-100 w-100 rounded-0 bottom-0 start-0">
+          <h2 class="d-inline border-bottom border-2 fs-5">
+            <%= link_to 'Category', '#', class: 'text-white text-decoration-none' %>
+          </h2>
+          <p class="text-white fw-bold mx-2 mb-2 lh-sm position-absolute bottom-0 start-0">
+            <%= link_to 'Friends. young woman.', '#', class: 'text-light text-decoration-none' %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>

@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   post 'logout', to: 'sessions#logout'
 
   resources :users, only: [:new, :create, :show]
+  resources :categories, only: [:show]
 end

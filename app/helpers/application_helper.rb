@@ -15,4 +15,12 @@ module ApplicationHelper
   def flash_message
     render 'layouts/flash_message' if flash.present?
   end
+
+  def categories
+    @categories = Category.all
+  end
+
+  def active_class(category)
+    return 'active' if request.path == category_path(category)
+  end
 end

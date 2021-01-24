@@ -17,24 +17,90 @@
 $primary: #f76208;
 $secondary: #4e443e;
 $dark: #000;
+$yellow: #fefe00;
 
 @import 'bootstrap';
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+[class^='container'] {
+  @include media-breakpoint-down('lg') {
+    padding: 0;
+    overflow-x: hidden !important;
+  }
+}
+
+@include media-breakpoint-up('lg') {
+  [class^='container'] {
+    max-width: 1140px;
+  }
+}
+
+// Navbar
 .navbar-brand {
   img {
     width: 150px;
   }
 }
 
-@include media-breakpoint-up('md') {
-  [class^='container'] {
-    max-width: 1140px;
+#navbarNav {
+  .nav-link {
+    text-transform: uppercase;
+    font-size: 13px;
   }
-}
 
-.navbar-toggler-icon {
-  width: 2em;
-  height: 2em;
+  @include media-breakpoint-down('lg') {
+    width: 50%;
+    max-width: 50%;
+    height: calc(100vh - 58px);
+    max-height: calc(100vh - 58px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    top: 58px;
+    padding: 1rem;
+    background-color: $secondary;
+
+    &.collapsing {
+      height: calc(100vh - 58px) !important;
+      transition: 0s;
+    }
+
+    transition: width 0.35s ease;
+    animation-name: slide-in;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+
+    @keyframes slide-in {
+      0% {
+        left: -100%;
+      }
+
+      100% {
+        left: 0;
+      }
+    }
+
+    .nav-link:not(.active):not(:hover) {
+      color: lighten($secondary, 50%);
+    }
+
+    .nav-link:not(.active):hover {
+      color: lighten($secondary, 50%);
+      opacity: 0.5;
+    }
+  }
+
+  @include media-breakpoint-only('xs') {
+    width: 60%;
+    max-width: 60%;
+  }
 }
 
 .navbar-light .navbar-nav .nav-link.active,
@@ -42,13 +108,22 @@ $dark: #000;
   color: $primary;
 }
 
-// Fonts
+// Fonts and texts
 .fs-sm {
   font-size: 15px;
 }
 
 .fs-xs {
   font-size: 14px;
+}
+
+.ls-sm {
+  line-height: 1.2;
+}
+
+// Utilities
+.object-fit-cover {
+  object-fit: cover;
 }
 
 // Placeholer
@@ -65,5 +140,40 @@ $dark: #000;
 
   svg {
     transform: rotate(15deg);
+  }
+}
+
+// Hero
+#mega-hero {
+  [class^='col'] {
+    height: 400px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-img-overlay {
+      top: unset;
+      right: unset;
+      bottom: 0;
+      background: linear-gradient(transparent 0%, lighten($secondary, 10%));
+    }
+  }
+
+  [class^='col']:last-child {
+    @include media-breakpoint-down('lg') {
+      height: 200px;
+    }
+  }
+}
+
+// Popular hot card
+.popular-jot-card {
+  height: 200px;
+
+  .card-img-overlay h2 {
+    border-bottom-color: lighten($yellow, 10%) !important;
   }
 }
