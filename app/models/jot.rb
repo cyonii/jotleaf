@@ -1,5 +1,5 @@
 class Jot < ApplicationRecord
-  validates :title, :text, :image, presence: true
+  validates :title, :text, :image, :categories, presence: true
 
   belongs_to :author, class_name: 'User'
   has_one_attached :image
