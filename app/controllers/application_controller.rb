@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
+  before_action :require_login!, only: [:index]
 
   def index
     render 'layouts/index'
