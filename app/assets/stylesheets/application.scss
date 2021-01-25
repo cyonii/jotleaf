@@ -101,6 +101,13 @@ body {
   color: $primary;
 }
 
+// Alert
+.alert {
+  z-index: 2000;
+  border-radius: 0 2px 2px 0;
+  border-left: 0;
+}
+
 // Fonts and texts
 .fs-sm {
   font-size: 15px;
