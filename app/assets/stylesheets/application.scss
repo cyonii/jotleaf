@@ -27,13 +27,6 @@ body {
   flex-direction: column;
 }
 
-[class^='container'] {
-  @include media-breakpoint-down('lg') {
-    padding: 0;
-    overflow-x: hidden !important;
-  }
-}
-
 @include media-breakpoint-up('lg') {
   [class^='container'] {
     max-width: 1140px;
@@ -124,6 +117,10 @@ body {
 // Utilities
 .object-fit-cover {
   object-fit: cover;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 // Placeholer
