@@ -1,0 +1,56 @@
+<div class="container-lg py-5">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-sm-8 col-md-7 col-lg-6">
+      <h1 class="fs-2 d-inline-block text-primary mb-4 px-5 alert-primary rounded-pill">
+        Jot it down
+      </h1>
+
+      <div class="card alert-primary border-primary">
+        <div class="card-body py-5">
+          <% @jot.errors.full_messages.each do |err_msg| %>
+            <div class="alert bg-danger text-light py-1 mb-1 fs-xs lh-sm"><%= err_msg %></div>
+          <% end %>
+
+          <%= form_with(model: @jot, local: true) do |form| %>
+            <div class="mb-3">
+              <%= form.label :title, class: 'fw-bold' %>
+              <%= form.text_field :title, class: 'form-control border-primary' %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :text, class: 'fw-bold' %>
+              <%= form.text_area :text, rows: 5,  class: 'form-control border-primary' %>
+            </div>
+
+            <div class="mb-3" id="jot-categories">
+              <p class="mb-0"><b>Categories:</b></p>
+              <%= form.collection_check_boxes :category_ids, @categories, :id, :name do |cb| %>
+                <div class="d-inline-flex px-3 py-1 mb-1 bg-secondary rounded-pill">
+                  <%= cb.label(class: 'form-check-label text-primary me-1') %>
+                  <%= cb.check_box(class: 'form-check-input rounded-circle border-0') %>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="my-3">
+              <%= form.label :image, class: 'fw-bold' %>
+              <%= form.file_field :image, direct_upload: true, rows: 5,  class: 'form-control border-primary' %>
+            </div>
+
+            <div class="">
+              <%= form.submit 'Publish', class: 'btn btn-primary fw-bold px-5' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-auto d-flex">
+      <div class="p-3 shadow bg-primary border border-primary ms-md-5" id="jot-pen">
+        <svg xmlns="http://www.w3.org/2000/svg" width="5rem" height="5rem" fill="currentColor" class="bi bi-vector-pen text-white" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828L10.646.646zm-1.8 2.908l-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z"/>
+          <path fill-rule="evenodd" d="M2.832 13.228L8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086.086-.026z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

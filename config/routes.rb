@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   post 'logout', to: 'sessions#logout'
 
   resources :users, only: [:new, :create, :show]
+  resources :jots, except: [:index]
   resources :categories, only: [:show]
 end

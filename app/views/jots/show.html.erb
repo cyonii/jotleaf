@@ -1,0 +1,19 @@
+<div class="container-lg py-5">
+  <div class="row gx-lg-4 justify-content-center align-items-center">
+    <div class="col-md-5 mb-4 mb-md-0">
+      <h1 class="text-primary lh-1"><%= @jot.title %></h1>
+      <p class="text-primary fs-sm">
+        <i class="fw-light">Author:</i> <b class="text-white"><%= @jot.author.name %></b>
+        &bull;
+        <i class="fw-light">Published on:</i> <b class="text-white"><%= @jot.created_at %></b>
+      </p>
+      <%= image_tag @jot.image, class: 'jot-image object-fit-cover rounded border border-3 border-primary' %>
+    </div>
+
+    <div class="col-md-7 col-lg-6">
+      <div class="jot-text-wrapper alert-primary rounded p-3 border border-3 border-primary">
+        <%= simple_format @jot.text, class: 'text-secondary lh-sm' %>
+      </div>
+    </div>
+  </div>
+</div>

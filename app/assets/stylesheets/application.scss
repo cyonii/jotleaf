@@ -21,6 +21,11 @@ $yellow: #fefe00;
 
 @import 'bootstrap';
 
+footer,
+html {
+  background: darken($secondary, 10%);
+}
+
 body {
   min-height: 100vh;
   display: flex;
@@ -102,7 +107,7 @@ body {
 }
 
 // Alert
-.alert {
+.alert#main-alert {
   z-index: 2000;
   border-radius: 0 2px 2px 0;
   border-left: 0;
@@ -197,5 +202,38 @@ body {
 
   .card-body {
     background: repeating-linear-gradient(-45deg, #eee 0 1px, #fff 1px 4px);
+  }
+}
+
+// Jot
+.jot-image {
+  width: auto;
+  max-width: 100%;
+
+  @include media-breakpoint-up('md') {
+    height: 400px;
+  }
+}
+
+.jot-text-wrapper {
+  @include media-breakpoint-up('md') {
+    max-height: 600px;
+    overflow-y: auto;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}
+
+// Jot form
+#jot-categories {
+  .form-check-input,
+  .form-check-label {
+    cursor: pointer;
+  }
+
+  .field_with_errors {
+    display: inline;
   }
 }
