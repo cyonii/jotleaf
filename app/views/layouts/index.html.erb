@@ -1,15 +1,7 @@
-<div class="container-lg px-0 px-lg-2 overflow-x-hidden">
+<div class="container-lg px-0 px-lg-2 overflow-x-hidden" id="index-main">
   <div class="row g-0" id="mega-hero">
     <div class="col-lg-9">
-      <div class="card rounded-0 border-0 h-100">
-        <%= image_tag @latest_jot.image, alt: @latest_jot.title, class: 'card-img rounded-0' %>
-        <div class="card-img-overlay rounded-0 bottom-0 start-0">
-          <h2 class="fw-bold fs-5 text-primary">
-            <%= link_to @latest_jot.title, jot_path(@latest_jot), class: 'text-decoration-none' %>
-          </h2>
-          <%= simple_format @latest_jot.text.slice(0..200), class: 'text-white lh-sm mb-0' %>
-        </div>
-      </div>
+      <%= render 'layouts/latest_jot_card' %>
     </div>
     <div class="col-lg-3">
       <%# image_tag asset_path('two.jpg', alt: 'Sample Two') %>
@@ -19,17 +11,7 @@
   <div class="row g-0" id="most-popular">
     <% @top_categories.each_with_index do |category, index| %>
     <div class="col-6 col-md-3">
-      <div class="card popular-jot-card border-0 rounded-0">
-        <%= image_tag category.top_jot.image, alt: category.top_jot.title, class: 'card-img rounded-0' %>
-        <div class="card-img-overlay h-100 w-100 rounded-0 bottom-0 start-0">
-          <h2 class="d-inline border-bottom border-2 fs-5">
-            <%= link_to category.name, category_path(category), class: 'text-white text-decoration-none' %>
-          </h2>
-          <p class="text-white fw-bold mx-2 mb-2 lh-sm position-absolute bottom-0 start-0">
-            <%= link_to category.top_jot.title, jot_path(category.top_jot), class: 'text-light text-decoration-none' %>
-          </p>
-        </div>
-      </div>
+      <%= render 'layouts/top_jot_card', category: category %>
     </div>
     <% end %>
   </div>

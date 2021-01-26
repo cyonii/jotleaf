@@ -143,9 +143,26 @@ body {
 }
 
 // Hero
+// Home view
+#index-main {
+  @include media-breakpoint-up('md') {
+    .row:nth-child(1) {
+      height: calc(0.7 * calc(100vh - 58px - 66px));
+    }
+
+    .row:nth-child(2) {
+      height: calc(0.3 * calc(100vh - 58px - 66px));
+    }
+  }
+}
+
 #mega-hero {
   [class^='col'] {
     height: 400px;
+
+    @include media-breakpoint-up('md') {
+      height: 100%;
+    }
 
     img {
       width: 100%;
