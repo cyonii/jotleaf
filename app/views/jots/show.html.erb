@@ -1,11 +1,14 @@
 <div class="container-lg py-5">
-  <div class="row gx-lg-4 justify-content-center align-items-center">
+  <div class="row gx-lg-4 justify-content-center align-items-end">
     <div class="col-md-5 mb-4 mb-md-0">
       <h1 class="text-primary lh-1"><%= @jot.title %></h1>
-      <p class="text-primary fs-sm">
+      <p class="text-primary fs-sm mb-0">
         <i class="fw-light">Author:</i> <b class="text-white"><%= @jot.author.name %></b>
         &bull;
         <i class="fw-light">Published on:</i> <b class="text-white"><%= @jot.created_at %></b>
+      </p>
+      <p class="text-primary fs-sm">
+        <i class="fw-light">Votes:</i> <b class="text-white"><%= @jot.votes.count %></b>
       </p>
       <%= image_tag @jot.image, class: 'jot-image object-fit-cover rounded border border-3 border-primary' %>
     </div>

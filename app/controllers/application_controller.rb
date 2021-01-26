@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :require_login!, only: [:index]
 
   def index
+    @latest_jot = Jot.last
+    @top_categories = Category.all.order(:priority).limit(4)
     render 'layouts/index'
   end
 

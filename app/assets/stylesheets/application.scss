@@ -142,16 +142,6 @@ body {
   font-weight: lighter;
 }
 
-// Jot pen
-#jot-pen {
-  border-radius: 50% 0 50% 50%;
-  transform: rotate(-15deg);
-
-  svg {
-    transform: rotate(15deg);
-  }
-}
-
 // Hero
 #mega-hero {
   [class^='col'] {
@@ -223,6 +213,49 @@ body {
 
   p {
     font-size: 18px;
+  }
+}
+// Jot pen
+#jot-pen-icon {
+  border-radius: 50% 0 50% 50%;
+  transform: rotate(-15deg);
+
+  svg {
+    transform: rotate(15deg);
+  }
+}
+
+#new-jot-pen {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  display: flex;
+  background-color: $primary;
+  border-radius: 50% 0 50% 50%;
+  padding: 0.5rem;
+  font-size: 2rem;
+  transform: rotate(-15deg);
+  transition: 0.3s;
+
+  svg {
+    transform: rotate(15deg);
+    transition: 0.3s;
+  }
+
+  @include media-breakpoint-up('md') {
+    right: 6rem;
+    bottom: 6rem;
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    transform: rotate(-15deg) scale(1.1);
+    box-shadow: 0 0 0 5px $white;
+
+    svg {
+      transform: rotate(-15deg);
+    }
   }
 }
 
