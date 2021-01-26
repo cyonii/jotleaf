@@ -2,19 +2,12 @@
   <div class="row g-0" id="mega-hero">
     <div class="col-lg-9">
       <div class="card rounded-0 border-0 h-100">
-        <%# image_tag asset_path('one.jpg', alt: 'Sample One'), class: 'card-img rounded-0' %>
-        <img src="https://picsum.photos/id/111/4400/2656.jpg" alt="OPop">
+        <%= image_tag @latest_jot.image, alt: @latest_jot.title, class: 'card-img rounded-0' %>
         <div class="card-img-overlay rounded-0 bottom-0 start-0">
           <h2 class="fw-bold fs-5 text-primary">
-            <%= link_to '#', class: 'text-decoration-none' do %>
-              Why you must not make any excuse for not keeping fit.
-            <% end %>
+            <%= link_to @latest_jot.title, jot_path(@latest_jot), class: 'text-decoration-none' %>
           </h2>
-          <p class="text-white lh-sm mb-0">
-            Friends. young woman working out at home , doing yoga exercises with the dog.
-            beautiful woman stretching, practicing. wellness, wellbeing, healthcare,
-            mental health, lifestyle concept. Free Photo
-          </p>
+          <%= simple_format @latest_jot.text.slice(0..200), class: 'text-white lh-sm mb-0' %>
         </div>
       </div>
     </div>

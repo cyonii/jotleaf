@@ -1,0 +1,34 @@
+<%= form_with(model: @jot, local: true) do |form| %>
+  <% @jot.errors.full_messages.each do |err_msg| %>
+    <div class="alert bg-danger text-light py-1 mb-1 fs-xs lh-sm"><%= err_msg %></div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: 'fw-bold' %>
+    <%= form.text_field :title, class: 'form-control border-primary' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :text, class: 'fw-bold' %>
+    <%= form.text_area :text, rows: 5,  class: 'form-control border-primary' %>
+  </div>
+
+  <div class="mb-3" id="jot-categories">
+    <p class="mb-0"><b>Categories:</b></p>
+    <%= form.collection_check_boxes :category_ids, (@categories), :id, :name do |cb| %>
+      <div class="d-inline-flex px-3 py-1 mb-1 bg-secondary rounded-pill">
+        <%= cb.label(class: 'form-check-label text-primary me-1') %>
+        <%= cb.check_box(class: 'form-check-input rounded-circle border-0') %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="my-3">
+    <%= form.label :image, class: 'fw-bold' %>
+    <%= form.file_field :image, direct_upload: true, rows: 5,  class: 'form-control border-primary' %>
+  </div>
+
+  <div class="">
+    <%= form.submit 'Publish', class: 'btn btn-primary fw-bold px-5' %>
+  </div>
+<% end %>
