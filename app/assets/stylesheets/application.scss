@@ -49,6 +49,10 @@ body {
   .nav-link {
     text-transform: uppercase;
     font-size: 13px;
+
+    &.active {
+      color: $primary;
+    }
   }
 
   @include media-breakpoint-down('lg') {
@@ -99,11 +103,6 @@ body {
     width: 60%;
     max-width: 60%;
   }
-}
-
-.navbar-light .navbar-nav .nav-link.active,
-.navbar-light .navbar-nav .show > .nav-link {
-  color: $primary;
 }
 
 // Alert
@@ -204,7 +203,7 @@ body {
     top: 0;
     right: 0;
     z-index: 1;
-    background: repeating-linear-gradient(-45deg, transparentize(#eee, 0.9) 0 1px, transparent 1px 4px);
+    background: repeating-linear-gradient(-45deg, rgba(238, 238, 238, 0.2), transparent 1px 4px);
   }
 
   .card-body {
