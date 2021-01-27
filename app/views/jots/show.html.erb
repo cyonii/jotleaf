@@ -12,7 +12,7 @@
         </li>
         <li class="list-group-item px-0 bg-transparent">
           <% @jot.categories.each do |c| %>
-          <%= link_to c.name, category_path(c), class: 'px-3 bg-primary text-secondary text-decoration-none rounded-pill' %>
+          <%= link_to c.name, category_path(c), class: 'px-3 py-1 bg-light text-secondary text-decoration-none rounded-pill' %>
           <% end %>
         </li>
         <li class="list-group-item px-0 align-items-center d-flex bg-transparent">
