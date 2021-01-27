@@ -148,10 +148,12 @@ body {
   @include media-breakpoint-up('md') {
     .row:nth-child(1) {
       height: calc(0.7 * calc(100vh - 58px - 66px));
+      max-height: calc(0.7 * calc(100vh - 58px - 66px));
     }
 
     .row:nth-child(2) {
       height: calc(0.3 * calc(100vh - 58px - 66px));
+      max-height: calc(0.3 * calc(100vh - 58px - 66px));
     }
   }
 }
