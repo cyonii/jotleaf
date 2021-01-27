@@ -2,21 +2,24 @@
   <div class="row gx-lg-1 justify-content-center align-items-end">
     <div class="col-md-5 mb-4 mb-md-0">
       <h1 class="fs-2 mb-3 text-primary lh-1"><%= @jot.title %></h1>
-      <p class="text-primary fs-sm mb-0">
-        <i class="fw-bold">Author:</i> <span class="text-white"><%= @jot.author.name %></span>
-        &bull;
-        <i class="fw-bold">Published on:</i> <span class="text-white"><%= @jot.created_at %></span>
-      </p>
-      <div class="d-flex align-items-center justify-content-between mb-3 text-primary fs-sm">
-        <p class="d-inline-mb-0">
-          <span class="fw-bold me-1">Votes:</span> <span class="text-white"><%= @jot.votes.count %></span>
-        </p>
-
-        <div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item px-0 bg-transparent">
+          <p class="text-primary fs-sm mb-0">
+            <i class="fw-bold">Author:</i> <span class="text-white"><%= @jot.author.name %></span>
+            | <i class="fw-bold">Published on:</i> <span class="text-white"><%= @jot.created_at.to_date %></span>
+            | <span class="fw-bold me-1">Votes:</span> <span class="text-white"><%= @jot.votes.count %></span>
+          </p>
+        </li>
+        <li class="list-group-item px-0 bg-transparent">
+          <% @jot.categories.each do |c| %>
+          <%= link_to c.name, category_path(c), class: 'px-3 bg-primary text-secondary text-decoration-none rounded-pill' %>
+          <% end %>
+        </li>
+        <li class="list-group-item px-0 align-items-center d-flex bg-transparent">
           <%= author_controls(@jot) %>
           <%= vote_button(@jot) %>
-        </div>
-      </div>
+        </li>
+      </ul>
       <%= image_tag @jot.image, class: 'jot-image object-fit-cover rounded border border-3 border-primary' %>
     </div>
 
