@@ -1,65 +1,14 @@
-<div class="container-lg">
-  <h1 class="d-inline-block mt-3 px-5 alert-primary rounded-pill text-secondary fw-bold fs-3 border-bottom border-primary border-3">
+<div class="container-lg  px-0 px-lg-3 overflow-x-hidden">
+  <h1 class="d-inline-block mx-2 mx-lg-0 mt-3 px-5 alert-primary rounded-pill text-secondary fw-bold fs-3 border-bottom border-primary border-3">
     <%= @category.name %>
   </h1>
 
   <!-- Magazine -->
   <div class="row g-0">
-    <% 2.times do |time| %>
-    <div class="col-12 col-md-6">
-      <div class="card h-100 stripe-overlay rounded-0 border-0" style="min-height: 300px">
-        <div class="row g-0 h-100">
-          <div class="col-6 position-relative img-overlay">
-            <%= image_tag "https://picsum.photos/1000/900?random=#{time}", alt: 'Sample One', class: 'card-img h-100 object-fit-cover rounded-0' %>
-          </div>
-          <div class="col-6">
-            <div class="card-body h-100">
-              <h5 class="d-inline text-primary border-bottom border-2 border-primary">
-                <%= @category.name %>
-              </h5>
-              <h6 class="fw-bold mt-1">Managing the ever-growing population in urban areas</h6>
-              <p class="lh-1 fw-light">
-                Over the last 20 years, the population in urban area has grown by 20%.
-                This poses challenge in housing.
-              </p>
-              <p class="lh-1 fw-light">
-                We speak to one expert on how best we an accommodate this growing numbers.
-              </p>
-              <%= link_to 'Read more', '#', class: 'text-decoration-none' %>
-            </div>
-          </div>
-        </div>
+    <% @category.jots.each do |jot| %>
+      <div class="col-12 col-md-6">
+        <%= render 'jots/card', jot: jot %>
       </div>
-    </div>
-    <% end %>
-
-
-    <% 2.times do |time| %>
-    <div class="col-12 col-md-6">
-      <div class="card h-100 stripe-overlay rounded-0 border-0" style="height: 300px">
-        <div class="row g-0 h-100">
-          <div class="col-6">
-            <div class="card-body h-100">
-              <h5 class="d-inline text-primary border-bottom border-2 border-primary">
-                <%= @category.name %>
-              </h5>
-              <h6 class="fw-bold mt-1">Managing the ever-growing population in urban areas</h6>
-              <p class="lh-1 fw-light">
-                Over the last 20 years, the population in urban area has grown by 20%.
-                This poses challenge in housing.
-              </p>
-              <p class="lh-1 fw-light">
-                We speak to one expert on how best we an accommodate this growing numbers.
-              </p>
-              <%= link_to 'Read more', '#', class: 'text-decoration-none' %>
-            </div>
-          </div>
-          <div class="col-6 position-relative img-overlay">
-            <%= image_tag "https://picsum.photos/1000/900?random=#{time + 242}", alt: 'Sample One', class: 'card-img h-100 object-fit-cover rounded-0' %>
-          </div>
-        </div>
-      </div>
-    </div>
     <% end %>
   </div>
 </div>
