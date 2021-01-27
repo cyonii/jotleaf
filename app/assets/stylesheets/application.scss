@@ -142,62 +142,60 @@ body {
   font-weight: lighter;
 }
 
-// Hero
 // Home view
 #index-main {
-  @include media-breakpoint-up('md') {
-    .row:nth-child(1) {
+  #mega-hero {
+    @include media-breakpoint-up('md') {
       height: calc(0.7 * calc(100vh - 58px - 66px));
       max-height: calc(0.7 * calc(100vh - 58px - 66px));
     }
 
-    .row:nth-child(2) {
+    [class^='col'] {
+      height: 400px;
+
+      @include media-breakpoint-up('md') {
+        height: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-img-overlay {
+        top: unset;
+        right: unset;
+        bottom: 0;
+        background: linear-gradient(transparent 0%, lighten($secondary, 10%));
+      }
+    }
+  }
+
+  #top-jots {
+    @include media-breakpoint-up('md') {
       height: calc(0.3 * calc(100vh - 58px - 66px));
       max-height: calc(0.3 * calc(100vh - 58px - 66px));
     }
-  }
-}
 
-#mega-hero {
-  [class^='col'] {
-    height: 400px;
+    [class^='col'] {
+      height: 220px;
 
-    @include media-breakpoint-up('md') {
-      height: 100%;
+      @include media-breakpoint-up('md') {
+        height: 100%;
+      }
     }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .top-jot-card {
+      .card-img-overlay h2 {
+        border-bottom-color: lighten($yellow, 10%) !important;
+      }
     }
-
-    .card-img-overlay {
-      top: unset;
-      right: unset;
-      bottom: 0;
-      background: linear-gradient(transparent 0%, lighten($secondary, 10%));
-    }
-  }
-
-  [class^='col']:last-child {
-    @include media-breakpoint-down('lg') {
-      height: 200px;
-    }
-  }
-}
-
-// Popular hot card
-.popular-jot-card {
-  height: 200px;
-
-  .card-img-overlay h2 {
-    border-bottom-color: lighten($yellow, 10%) !important;
   }
 }
 
 // Background
-.stripe-overlay {
+.jot-card {
   .img-overlay::after {
     content: '';
     position: absolute;
@@ -214,7 +212,7 @@ body {
   }
 }
 
-// Jot
+// Jot Show
 .jot-image {
   width: 100%;
   max-width: 100%;
@@ -270,7 +268,7 @@ body {
   &:hover {
     opacity: 0.9;
     transform: rotate(-15deg) scale(1.1);
-    box-shadow: 0 0 0 5px $white;
+    box-shadow: 0 0 0 5px $white, 0 0 0 7px $primary;
 
     svg {
       transform: rotate(-15deg);

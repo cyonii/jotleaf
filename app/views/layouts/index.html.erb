@@ -1,14 +1,10 @@
 <div class="container-lg px-0 px-lg-3 overflow-x-hidden" id="index-main">
   <div class="row g-0" id="mega-hero">
-    <div class="col-lg-9">
+    <div class="col-12">
       <%= render 'layouts/latest_jot_card' %>
     </div>
-    <div class="col-lg-3">
-      <%# image_tag asset_path('two.jpg', alt: 'Sample Two') %>
-      <img src="https://picsum.photos/id/155/4400/2656.jpg" alt="OPop">
-    </div>
   </div>
-  <div class="row g-0" id="most-popular">
+  <div class="row g-0" id="top-jots">
     <% @top_categories.each_with_index do |category, index| %>
     <div class="col-6 col-md-3">
       <%= render 'layouts/top_jot_card', category: category %>
