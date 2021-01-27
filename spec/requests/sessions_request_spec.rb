@@ -11,7 +11,7 @@ RSpec.describe 'Session Management', type: :request do
 
   it 'logs in a user' do
     user.save!
-    post login_path, params: { username: 'johndoe' }
+    post login_path, params: { username: user.username }
     follow_redirect!
 
     expect(response.body).to include('Signed in successfully')

@@ -2,12 +2,13 @@ require 'rails_helper'
 require 'faker'
 
 RSpec.describe Jot, type: :model do
-  fixtures :users
+  fixtures :users, :categories
 
-  let(:image) { File.open(Rails.root.join('spec/images/image-1.png')) }
+  let(:image) { File.open(Rails.root.join('spec/files/images/image-1.png')) }
   let(:params) do
     { title: 'Fake jot article',
       text: 'I am a test article for the jot model',
+      categories: [categories(:one)],
       author: users(:one) }
   end
   subject { described_class.new(params) }
@@ -23,6 +24,11 @@ RSpec.describe Jot, type: :model do
 
     it 'should not validate without an image attached' do
       subject.image = nil
+      expect(subject.valid?).to be(false)
+    end
+
+    it 'should not validate without at least one category' do
+      subject.categories = []
       expect(subject.valid?).to be(false)
     end
 

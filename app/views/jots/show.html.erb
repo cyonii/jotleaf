@@ -1,0 +1,36 @@
+<div class="container-lg py-5">
+  <div class="row gx-lg-1 justify-content-center align-items-end">
+    <div class="col-md-5 mb-4 mb-md-0">
+      <h1 class="fs-2 mb-3 text-primary lh-1"><%= @jot.title %></h1>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item px-0 bg-transparent">
+          <p class="text-primary fs-sm mb-0">
+            <i class="fw-bold">Author:</i> <span class="text-white"><%= @jot.author.name %></span>
+            | <i class="fw-bold">Published on:</i> <span class="text-white"><%= @jot.created_at.to_date %></span>
+            | <span class="fw-bold me-1">Votes:</span> <span class="text-white"><%= @jot.votes.count %></span>
+          </p>
+        </li>
+        <li class="list-group-item px-0 bg-transparent">
+          <% @jot.categories.each do |c| %>
+          <%= link_to c.name, category_path(c), class: 'px-3 py-1 bg-light text-secondary text-decoration-none rounded-pill' %>
+          <% end %>
+        </li>
+        <li class="list-group-item px-0 align-items-center d-flex bg-transparent">
+          <%= author_controls(@jot) %>
+          <%= vote_button(@jot) %>
+        </li>
+      </ul>
+      <%= render 'jot_image', jot: @jot %>
+    </div>
+
+    <div class="col-md-1 h-100 mb-4 mb-md-0">
+      <div class="d-flex flex-md-column bg-light px-1"></div>
+    </div>
+
+    <div class="col-md-7 col-lg-6">
+      <div class="jot-text-wrapper alert-primary rounded p-3 border border-3 border-primary">
+        <%= simple_format @jot.text, class: 'text-secondary lh-sm' %>
+      </div>
+    </div>
+  </div>
+</div>
