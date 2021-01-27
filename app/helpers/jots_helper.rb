@@ -13,6 +13,27 @@ module JotsHelper
     render 'author_controls' if author?(jot)
   end
 
+  def desktop_ordering(index)
+    return 'order-md-first' unless odd_rows.include?(index + 1)
+  end
+
+  def mobile_ordering(index)
+    css_class = []
+    css_class << 'order-last' unless index.even?
+    css_class << 'order-md-first' if odd_rows.include?(index + 1)
+    css_class.join(' ')
+  end
+
+  def odd_rows
+    pattern = [1, 2]
+
+    while pattern.last <= 100
+      pattern << pattern.last + 3
+      pattern << pattern.last + 1
+    end
+    pattern
+  end
+
   private
 
   def author?(jot)

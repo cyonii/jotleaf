@@ -5,9 +5,9 @@
 
   <!-- Magazine -->
   <div class="row g-0">
-    <% @category.jots.each do |jot| %>
+    <% @category.jots.each_with_index do |jot, index| %>
       <div class="col-12 col-md-6">
-        <%= render 'jots/card', jot: jot %>
+        <%= render 'jots/card', jot: jot, index: index %>
       </div>
     <% end %>
   </div>
