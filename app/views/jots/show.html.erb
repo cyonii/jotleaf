@@ -20,7 +20,7 @@
           <%= vote_button(@jot) %>
         </li>
       </ul>
-      <%= image_tag @jot.image, class: 'jot-image object-fit-cover rounded border border-3 border-primary' %>
+      <%= render 'jot_image', jot: @jot %>
     </div>
 
     <div class="col-md-1 h-100 mb-4 mb-md-0">

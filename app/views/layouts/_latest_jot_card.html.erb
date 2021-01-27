@@ -1,6 +1,8 @@
 <% if @latest_jot %>
 <div class="card rounded-0 border-0 h-100">
-  <%= image_tag @latest_jot.image, alt: @latest_jot.title, class: 'card-img rounded-0' %>
+  <% if @latest_jot.image.attached? %>
+    <%= image_tag @latest_jot.image, alt: @latest_jot.title, class: 'card-img rounded-0' %>
+  <% end %>
   <div class="card-img-overlay rounded-0 bottom-0 start-0">
     <h2 class="fw-bold fs-5 text-primary">
       <%= link_to @latest_jot.title, jot_path(@latest_jot), class: 'text-decoration-none' %>

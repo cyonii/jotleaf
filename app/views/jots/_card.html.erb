@@ -1,7 +1,9 @@
 <div class="card jot-card h-100 rounded-0 border-0">
   <div class="row g-0 h-100">
     <div class="col-6 <%= mobile_ordering(index) %> position-relative img-overlay">
-      <%= image_tag jot.image, alt: jot.title, class: 'card-img h-100 object-fit-cover rounded-0' %>
+      <%= if jot.image.attached? %>
+        <%= image_tag jot.image, alt: jot.title, class: 'card-img h-100 object-fit-cover rounded-0' %>
+      <% end %>
     </div>
     <div class="col-6 <%= desktop_ordering(index) %>">
       <div class="card-body h-100">
