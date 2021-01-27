@@ -4,7 +4,7 @@ require 'faker'
 RSpec.describe Jot, type: :model do
   fixtures :users, :categories
 
-  let(:image) { File.open(Rails.root.join('spec/images/image-1.png')) }
+  let(:image) { File.open(Rails.root.join('spec/files/images/image-1.png')) }
   let(:params) do
     { title: 'Fake jot article',
       text: 'I am a test article for the jot model',
