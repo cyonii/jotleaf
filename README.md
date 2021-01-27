@@ -58,6 +58,10 @@ Feel free to check the [issues page](issues/).
 
 Give a ⭐️ if you like this project!
 
+## Appreciation
+
+Special thanks to [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) who made the [design](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) used to develop this project.
+
 
 ## 📝 License
 
