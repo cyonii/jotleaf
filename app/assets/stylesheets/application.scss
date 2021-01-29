@@ -215,10 +215,11 @@ body {
 .jot-image {
   width: 100%;
   max-width: 100%;
+  height: auto;
 
-  @include media-breakpoint-up('md') {
-    height: 400px;
-  }
+  // @include media-breakpoint-up('md') {
+  //   height: 400px;
+  // }
 }
 
 .jot-text-wrapper {

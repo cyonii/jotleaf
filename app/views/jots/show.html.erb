@@ -12,7 +12,7 @@
         </li>
         <li class="list-group-item px-0 bg-transparent">
           <% @jot.categories.each do |c| %>
-          <%= link_to c.name, category_path(c), class: 'px-3 py-1 bg-light text-secondary text-decoration-none rounded-pill' %>
+            <%= link_to c.name, category_path(c), class: 'd-inline-flex mb-1 px-3 bg-light text-secondary text-decoration-none rounded-pill' %>
           <% end %>
         </li>
         <li class="list-group-item px-0 align-items-center d-flex bg-transparent">
@@ -28,8 +28,8 @@
     </div>
 
     <div class="col-md-7 col-lg-6">
-      <div class="jot-text-wrapper alert-primary rounded p-3 border border-3 border-primary">
-        <%= simple_format @jot.text, class: 'text-secondary lh-sm' %>
+      <div class="jot-text-wrapper alert-primary rounded p-3">
+        <%= simple_format @jot.text, class: 'text-secondary fw-light lh-sm' %>
       </div>
     </div>
   </div>
