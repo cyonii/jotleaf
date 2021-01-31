@@ -4,7 +4,7 @@
 
 ## About
 
-Jot Lea is a lifestyle blog where users can post blog articles with an image attached. Articles on Jot Leaf are grouped by categories, a blog article must belong to at least one or many categories, and categories may have many jot articles tagged to them.
+Jot Leaf is a lifestyle blog where users post 'jot' articles. A jot article must have an image attached to it and belong to one or more categories. A category can have many jot articles tagged to them.
 
 
 ## Scrrenshots
@@ -22,11 +22,11 @@ Jot Lea is a lifestyle blog where users can post blog articles with an image att
 
 ## Getting Started
 
-Follow the following instructions to run a copy on your local machine.
+In other to get a copy up and running on your local machine, follow the step-by-step instruction below.
 
 - clone this repo by running `git clone git@github.com:cyonii/jotleaf.git`
-- run `cd jotleaf` to change into directory
-- run `bundle install` to install all dependencies
+- run `cd jotleaf` to change into the project's directory
+- run `bundle install` to install the project's dependencies
 - you may need to run `yarn install` to update yarn packages
 - run `rails db:create` and `rails db:migrate` to setup database
 - run `rails server` to start application
@@ -40,7 +40,7 @@ Follow the following instructions to run a copy on your local machine.
 
 run `rspec` in the containing folder to run tests the application.
 
-## Authors
+## Author
 
 👤 **CY Kalu**
 
@@ -60,7 +60,7 @@ Give a ⭐️ if you like this project!
 
 ## Appreciation
 
-Special thanks to [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) who made the [design](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) used to develop this project.
+Special appreciation to [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) who made the [design](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) used to develop this project's UI.
 
 
 ## 📝 License
