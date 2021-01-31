@@ -9,10 +9,10 @@ RSpec.describe 'User Management', type: :request do
 
     post users_path, params: { user: user_params }
     expect(response).to have_http_status(:redirect)
-    expect(response).to redirect_to(user_path(assigns(:user)))
+    expect(response).to redirect_to(root_path)
     follow_redirect!
 
-    expect(response).to render_template(:show)
+    expect(response).to render_template('layouts/index')
     expect(response.body).to include('Welcome to Jot Leaf, johndoe')
   end
 end

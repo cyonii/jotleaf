@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to Jot Leaf, #{@user.username}"
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
       render action: :new
     end

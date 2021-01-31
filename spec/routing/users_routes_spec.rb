@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'User Routes' do
-  fixtures :users
-
   it 'GET /users does not expose list of users' do
     expect(get: '/users').not_to be_routable
   end
