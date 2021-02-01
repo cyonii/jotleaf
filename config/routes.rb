@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :jots, except: [:index] do
     resources :votes, only: [:create, :destroy]
   end
-  resources :categories, only: [:show]
+  resources :categories
 end

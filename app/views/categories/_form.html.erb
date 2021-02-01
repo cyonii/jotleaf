@@ -1,0 +1,13 @@
+<%= form_with model: @category, local: true, class: 'py-5' do |form| %>
+  <% @category.errors.full_messages.each do |err_msg| %>
+    <div class="alert bg-danger text-light py-1 mb-1 fs-xs lh-sm"><%= err_msg %></div>
+  <% end %>
+
+  <%= form.label :name %>
+  <%= form.text_field :name, class: 'form-control border-primary', placeholder: 'Name of category' %>
+
+  <%= form.label :priority %>
+  <%= form.number_field :priority, class: 'form-control border-primary', placeholder: 'Priority' %>
+
+  <%= form.submit 'Save', class: 'btn btn-primary px-5 fw-bold mt-3' %>
+<% end %>
