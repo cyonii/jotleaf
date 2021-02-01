@@ -13,6 +13,18 @@ module JotsHelper
     render 'author_controls' if author?(jot)
   end
 
+  def latest_jot
+    render 'layouts/latest_jot_card' if @latest_jot
+  end
+
+  def top_jot(category)
+    render 'layouts/top_jot_card', category: category if category.top_jot
+  end
+
+  def jot_image(jot, css_class: '')
+    image_tag jot.image, alt: jot.title, class: css_class if jot.image.attached?
+  end
+
   def desktop_ordering(index)
     return 'order-md-first' unless odd_rows.include?(index + 1)
   end
