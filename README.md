@@ -45,14 +45,14 @@ run `rspec` in the containing folder to run tests the application.
 👤 **CY Kalu**
 
 - GitHub: [@cyonii](https://github.com/cyonii)
-- Twitter: [@theOnuoha](https://twitter.com/theOnuoha)
+- Twitter: [@theOnuoha](https://twitter.com/cy_kalu)
 - LinkedIn: [Silas Kalu](https://www.linkedin.com/in/cyonii/)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](../../issues).
 
 ## Support
 
@@ -65,4 +65,4 @@ Special appreciation to [Nelson Sakwa](https://www.behance.net/sakwadesignstudio
 
 ## 📝 License
 
-This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.  
+This project is [MIT](./LICENSE) licensed.
