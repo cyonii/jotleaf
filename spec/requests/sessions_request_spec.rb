@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Session Management', type: :request do
-  let(:user) { User.new(name: 'John Doe', username: 'johndoe') }
+  let(:user) { User.create(name: 'John Doe', username: 'johndoe') }
 
   it 'displays login page' do
     get login_path
@@ -10,7 +10,6 @@ RSpec.describe 'Session Management', type: :request do
   end
 
   it 'logs in a user' do
-    user.save!
     post login_path, params: { username: user.username }
     follow_redirect!
 
@@ -25,7 +24,6 @@ RSpec.describe 'Session Management', type: :request do
   end
 
   it 'displays logout button for authenticated user' do
-    user.save!
     post login_path, params: { username: user.username }
     follow_redirect!
 
@@ -33,7 +31,6 @@ RSpec.describe 'Session Management', type: :request do
   end
 
   it 'logs out authenticated user' do
-    user.save!
     post login_path, params: { username: user.username }
     post logout_path
     follow_redirect!
