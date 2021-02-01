@@ -3,7 +3,7 @@ class Category < ApplicationRecord
   has_many :jots, through: :tags
 
   validates :name, :priority, presence: true
-  validates :priority, uniqueness: true
+  validates :name, :priority, uniqueness: true
 
   def top_jot
     jots.max_by { |jot| jot.votes.count }

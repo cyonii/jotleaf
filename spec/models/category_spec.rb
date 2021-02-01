@@ -7,6 +7,7 @@ RSpec.describe Category, type: :model do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:priority) }
     it { should validate_uniqueness_of(:priority) }
+    it { should validate_uniqueness_of(:name) }
 
     it 'should not validate without name' do
       subject.name = nil
