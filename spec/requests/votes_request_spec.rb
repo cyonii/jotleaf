@@ -7,27 +7,23 @@ RSpec.describe 'Votes', type: :request do
   let(:vote) { votes(:one) }
   let(:jot) { jots(:one) }
 
-  describe 'POST /create' do
-    it 'creates new vote' do
-      post login_path, params: { username: user.username }
-      post "/jots/#{jot.id}/votes"
-      expect(response).to have_http_status(:redirect)
-      follow_redirect!
+  it 'creates new vote' do
+    post login_path, params: { username: user.username }
+    post "/jots/#{jot.id}/votes"
+    expect(response).to have_http_status(:redirect)
+    follow_redirect!
 
-      expect(response.body).to include('Voted')
-    end
+    expect(response.body).to include('Voted')
   end
 
-  describe 'DELETE /destroy' do
-    it 'deletes vote' do
-      vote.update(user: user)
-      post login_path, params: { username: user.username }
+  it 'deletes vote' do
+    vote.update(user: user)
+    post login_path, params: { username: user.username }
 
-      delete "/jots/#{jot.id}/votes/#{vote.id}"
-      expect(response).to have_http_status(:redirect)
-      follow_redirect!
+    delete "/jots/#{jot.id}/votes/#{vote.id}"
+    expect(response).to have_http_status(:redirect)
+    follow_redirect!
 
-      expect(response.body).to include('Unvoted')
-    end
+    expect(response.body).to include('Unvoted')
   end
 end
