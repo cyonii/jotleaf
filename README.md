@@ -38,7 +38,7 @@ In other to get a copy up and running on your local machine, follow the step-by-
 
 ### Run Tests
 
-run `rspec` in the containing folder to run tests the application.
+run `rspec` in the containing folder to run the tests the application.
 
 ## Author
 
@@ -50,7 +50,7 @@ run `rspec` in the containing folder to run tests the application.
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues).
 
