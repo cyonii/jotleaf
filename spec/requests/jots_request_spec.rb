@@ -13,6 +13,7 @@ RSpec.describe 'Jots', type: :request do
       image: fixture_file_upload(Rails.root.join('spec/files/images/image-1.png'))
     } }
   end
+  let(:jot) { Jot.create(jot_params[:jot].update({ author: user })) }
 
   before(:each) do
     post login_path, params: { username: user.username }
@@ -31,19 +32,16 @@ RSpec.describe 'Jots', type: :request do
   end
 
   it 'gets jot show page' do
-    jot = Jot.create(jot_params[:jot].update({ author: user }))
     get jot_path(jot)
     expect(response.body).to include(jot_params[:jot][:title])
   end
 
   it 'gets edit jot article page' do
-    jot = Jot.create(jot_params[:jot].update({ author: user }))
     get edit_jot_path(jot)
     expect(response.body).to include('Edit jot')
   end
 
   it 'updates jot article' do
-    jot = Jot.create(jot_params[:jot].update({ author: user }))
     patch jot_path(jot), params: { jot: { title: 'Edited' } }
     follow_redirect!
 
@@ -51,7 +49,6 @@ RSpec.describe 'Jots', type: :request do
   end
 
   it 'deletes jot article' do
-    jot = Jot.create(jot_params[:jot].update({ author: user }))
     delete jot_path(jot)
     follow_redirect!
 
