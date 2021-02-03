@@ -1,3 +1,7 @@
 one:
   name: Travels
   priority: 1
+
+two:
+  name: Technology
+  priority: 2
