@@ -38,6 +38,8 @@ group :development, :test do
   # For tests
   gem 'database_cleaner'
   gem 'rspec-rails'
+  # Help kill n+1 queries
+  gem 'bullet'
 end
 
 group :development do

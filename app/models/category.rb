@@ -6,6 +6,6 @@ class Category < ApplicationRecord
   validates :name, :priority, uniqueness: true
 
   def top_jot
-    jots.max_by { |jot| jot.votes.count }
+    jots.joins(:votes).order('votes desc').limit(1)[0]
   end
 end
