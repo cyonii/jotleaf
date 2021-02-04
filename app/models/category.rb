@@ -6,6 +6,6 @@ class Category < ApplicationRecord
   validates :name, :priority, uniqueness: true
 
   def top_jot
-    jots.joins(:votes).order('votes desc').limit(1)[0]
+    jots.joins(:votes).order('votes desc').limit(1)[0] or jots.order('created_at DESC').limit(1)[0]
   end
 end
