@@ -13,8 +13,8 @@ module JotsHelper
     render 'author_controls' if author?(jot)
   end
 
-  def latest_jot
-    render 'layouts/latest_jot_card' if @latest_jot
+  def latest_jot(jot)
+    render 'layouts/latest_jot_card' if jot
   end
 
   def top_jot(category)
