@@ -1,0 +1,9 @@
+<div class="card rounded-0 border-0 h-100">
+  <%= jot_image @latest_jot, css_class: 'card-img rounded-0' %>
+  <div class="card-img-overlay rounded-0 bottom-0 start-0">
+    <h2 class="fw-bold fs-5 text-primary">
+      <%= link_to @latest_jot.title, jot_path(@latest_jot), class: 'text-decoration-none' %>
+    </h2>
+    <%= simple_format @latest_jot.text.slice(0..200), class: 'text-white lh-sm mb-0' %>
+  </div>
+</div>

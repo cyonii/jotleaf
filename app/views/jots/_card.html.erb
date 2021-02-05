@@ -1,0 +1,17 @@
+<div class="card jot-card h-100 rounded-0 border-0">
+  <div class="row g-0 h-100">
+    <div class="col-6 <%= mobile_ordering(index) %> position-relative img-overlay">
+      <%= jot_image jot, css_class: 'card-img h-100 object-fit-cover rounded-0' %>
+    </div>
+    <div class="col-6 <%= desktop_ordering(index) %>">
+      <div class="card-body h-100">
+        <h5 class="d-inline text-primary border-bottom border-2 border-primary">
+          <%= @category.name %>
+        </h5>
+        <h6 class="fw-bold mt-1"><%= jot.title %></h6>
+        <p class="lh-1 fw-light"><%= jot.text.slice(..200) %>...</p>
+        <%= link_to 'Read more', jot_path(jot), class: 'text-decoration-none' %>
+      </div>
+    </div>
+  </div>
+</div>

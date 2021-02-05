@@ -1,0 +1,10 @@
+<div class="container-lg  px-0 px-lg-3 overflow-x-hidden">
+  <!-- Magazine -->
+  <div class="row g-0">
+    <% @category.jots.includes(image_attachment: :blob).each_with_index do |jot, index| %>
+      <div class="col-12 col-md-6">
+        <%= render 'jots/card', jot: jot, index: index %>
+      </div>
+    <% end %>
+  </div>
+</div>

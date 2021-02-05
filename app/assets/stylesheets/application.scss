@@ -1,0 +1,289 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$primary: #f76208;
+$secondary: #4e443e;
+$dark: #000;
+$yellow: #fefe00;
+
+@import 'bootstrap';
+
+footer,
+html {
+  background: darken($secondary, 10%);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@include media-breakpoint-up('lg') {
+  [class^='container'] {
+    max-width: 1140px;
+  }
+}
+
+// Navbar
+.navbar-brand {
+  img {
+    width: 150px;
+  }
+}
+
+#navbarNav {
+  .nav-link {
+    text-transform: uppercase;
+    font-size: 13px;
+
+    &.active {
+      color: $primary;
+    }
+  }
+
+  @include media-breakpoint-down('lg') {
+    width: 50%;
+    max-width: 50%;
+    height: calc(100vh - 58px);
+    max-height: calc(100vh - 58px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    top: 58px;
+    padding: 1rem;
+    background-color: $secondary;
+    z-index: 2000;
+    transition: width 0.35s ease;
+    animation-name: slide-in;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+
+    &.collapsing {
+      height: calc(100vh - 58px) !important;
+      transition: 0s;
+    }
+
+    @keyframes slide-in {
+      0% {
+        left: -100%;
+      }
+
+      100% {
+        left: 0;
+      }
+    }
+
+    .nav-link:not(.active):not(:hover) {
+      color: lighten($secondary, 50%);
+    }
+
+    .nav-link:not(.active):hover {
+      color: lighten($secondary, 50%);
+      opacity: 0.5;
+    }
+  }
+
+  @include media-breakpoint-only('xs') {
+    width: 60%;
+    max-width: 60%;
+  }
+}
+
+// Alert
+.alert#main-alert {
+  z-index: 2000;
+  border-radius: 0 2px 2px 0;
+  border-left: 0;
+}
+
+// Fonts and texts
+.fs-sm {
+  font-size: 15px;
+}
+
+.fs-xs {
+  font-size: 14px;
+}
+
+.ls-sm {
+  line-height: 1.2;
+}
+
+// Utilities
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+// Placeholer
+*::-moz-placeholder,
+*::-webkit-input-placeholder,
+*::placeholder {
+  font-weight: lighter;
+}
+
+// Home view
+#index-main {
+  #mega-hero {
+    @include media-breakpoint-up('md') {
+      height: calc(0.7 * calc(100vh - 58px - 66px));
+      max-height: calc(0.7 * calc(100vh - 58px - 66px));
+    }
+
+    [class^='col'] {
+      height: 400px;
+
+      @include media-breakpoint-up('md') {
+        height: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-img-overlay {
+        top: unset;
+        right: unset;
+        bottom: 0;
+        background: linear-gradient(transparent 0%, lighten($secondary, 10%));
+      }
+    }
+  }
+
+  #top-jots {
+    @include media-breakpoint-up('md') {
+      height: calc(0.3 * calc(100vh - 58px - 66px));
+      max-height: calc(0.3 * calc(100vh - 58px - 66px));
+    }
+
+    [class^='col'] {
+      height: 220px;
+
+      @include media-breakpoint-up('md') {
+        height: 100%;
+      }
+    }
+
+    .top-jot-card {
+      .card-img-overlay h2 {
+        border-bottom-color: lighten($yellow, 10%) !important;
+      }
+    }
+  }
+}
+
+// Background
+.jot-card {
+  .img-overlay::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: repeating-linear-gradient(-45deg, rgba(238, 238, 238, 0.2), transparent 1px 4px);
+  }
+
+  .card-body {
+    background: repeating-linear-gradient(-45deg, #eee 0 1px, #fff 1px 4px);
+  }
+}
+
+// Jot Show
+.jot-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+
+  // @include media-breakpoint-up('md') {
+  //   height: 400px;
+  // }
+}
+
+.jot-text-wrapper {
+  @include media-breakpoint-up('md') {
+    max-height: 600px;
+    overflow-y: auto;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}
+// Jot pen
+#jot-pen-icon {
+  border-radius: 50% 0 50% 50%;
+  transform: rotate(-15deg);
+
+  svg {
+    transform: rotate(15deg);
+  }
+}
+
+#new-jot-pen {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  display: flex;
+  background-color: $primary;
+  border-radius: 50% 0 50% 50%;
+  padding: 0.5rem;
+  font-size: 2rem;
+  transform: rotate(-15deg);
+  transition: 0.3s;
+
+  svg {
+    transform: rotate(15deg);
+    transition: 0.3s;
+  }
+
+  @include media-breakpoint-up('md') {
+    right: 6rem;
+    bottom: 6rem;
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    transform: rotate(-15deg) scale(1.1);
+    box-shadow: 0 0 0 5px $white, 0 0 0 7px $primary;
+
+    svg {
+      transform: rotate(-15deg);
+    }
+  }
+}
+
+// Jot form
+#jot-categories {
+  .form-check-input,
+  .form-check-label {
+    cursor: pointer;
+  }
+
+  .field_with_errors {
+    display: inline;
+  }
+}

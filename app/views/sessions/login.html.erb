@@ -1,0 +1,36 @@
+<div class="container-lg py-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 col-md-5 col-lg-4">
+      <div class="card alert-primary border-primary shadow py-5">
+        <div class="card-body">
+          <h1 class="card-title fw-bold fs-5">Log in</h1>
+          <p class="mb-0 fw-light text-muted fs-sm lh-1">
+            Welcome back
+          </p>
+
+          <%= form_with url: login_path, local: true, class: 'py-4' do |form| %>
+            <div class="row">
+              <div class="col-12 mb-3">
+                <%= form.label :username %>
+                <%= form.text_field :username,
+                    required: true,
+                    autofocus: true,
+                    class: "form-control border-primary",
+                    placeholder: 'username' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.submit 'Log in',
+                    class: "btn btn-primary fw-bold border-white shadow-sm px-5" %>
+              </div>
+            </div>
+          <% end %>
+
+          <p class="fw-light">
+            New user? <%= link_to 'Join now', new_user_path %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

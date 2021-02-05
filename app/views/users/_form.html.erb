@@ -1,0 +1,32 @@
+<%= form_with model: @user, local: true, class: 'py-4' do |form| %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="alert bg-danger text-white py-0 fw-light mb-2">
+      <%= message %>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-12 mb-3">
+      <%= form.label :name %>
+      <%= form.text_field :name,
+          class: "form-control border-primary",
+          required: true,
+          placeholder: 'e.g John Doe',
+          autofocus: true %>
+    </div>
+
+    <div class="col-12 mb-3">
+      <%= form.label :username %>
+      <%= form.text_field :username,
+          class: "form-control border-primary",
+          required: true,
+          placeholder: 'e.g johndoe' %>
+    </div>
+
+    <div class="col-12">
+      <%= form.submit 'Join now',
+          class: "btn btn-primary border-white fw-bold shadow-sm px-5",
+          require: true %>
+    </div>
+  </div>
+<% end %>
